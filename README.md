@@ -4,7 +4,7 @@ A library to simplify working with Java threads from clojure.
 
 ## Usage
 
-
+[API docs](http://pallet.github.com/pallet-thread)
 
 ## Installation
 
