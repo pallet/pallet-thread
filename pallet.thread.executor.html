@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head><link href="css/default.css" rel="stylesheet" type="text/css"><script src="js/jquery.min.js" type="text/javascript"></script><script src="js/page_effects.js" type="text/javascript"></script><title>pallet.thread.executor documentation</title></head><body><div id="header"><h1><a href="index.html">Pallet-thread 0.1.0-SNAPSHOT API documentation</a></h1></div><div class="sidebar" id="namespaces"><h3><span>Namespaces</span></h3><ul><li class="current"><a href="pallet.thread.executor.html"><span>pallet.thread.executor</span></a></li></ul></div><div class="sidebar" id="vars"><h3>Public Vars</h3><ul><li><a href="pallet.thread.executor.html#var-current-thread-group"><span>current-thread-group</span></a></li><li><a href="pallet.thread.executor.html#var-execute"><span>execute</span></a></li><li><a href="pallet.thread.executor.html#var-execute-after"><span>execute-after</span></a></li><li><a href="pallet.thread.executor.html#var-execute-fixed-delay"><span>execute-fixed-delay</span></a></li><li><a href="pallet.thread.executor.html#var-execute-fixed-rate"><span>execute-fixed-rate</span></a></li><li><a href="pallet.thread.executor.html#var-executor"><span>executor</span></a></li><li><a href="pallet.thread.executor.html#var-find-thread-group"><span>find-thread-group</span></a></li><li><a href="pallet.thread.executor.html#var-thread-factory"><span>thread-factory</span></a></li><li><a href="pallet.thread.executor.html#var-thread-group"><span>thread-group</span></a></li><li><a href="pallet.thread.executor.html#var-with-executor"><span>with-executor</span></a></li></ul></div><div class="namespace-docs" id="content"><h2>pallet.thread.executor documentation</h2><pre class="doc">Thread executor primitives
+</pre><div class="public" id="var-current-thread-group"><h3>current-thread-group</h3><div class="usage"><code>(current-thread-group)</code></div><pre class="doc">Returns the current thread group
+</pre></div><div class="public" id="var-execute"><h3>execute</h3><div class="usage"><code>(execute executor f)</code></div><pre class="doc">Execute the given function `f` on the executor service `executor`.
+</pre></div><div class="public" id="var-execute-after"><h3>execute-after</h3><div class="usage"><code>(execute-after executor f delay delay-units)</code><code>(execute-after executor f delay)</code></div><pre class="doc">Execute the given function `f` on the executor service `executor` after
+a delay specified by `delay`. `delay-units` is one of :days, :hours, :mins,
+:s, :ms, :us or :ns.</pre></div><div class="public" id="var-execute-fixed-delay"><h3>execute-fixed-delay</h3><div class="usage"><code>(execute-fixed-delay executor f delay delay-units initial-delay)</code><code>(execute-fixed-delay executor f period delay-units)</code></div><pre class="doc">Execute the given function `f` on the executor service `executor` regularly
+with a delay specified by `delay`. An `initial-delay` may be specified.
+`delay-units` is one of :days, :hours, :mins, :s, :ms, :us or :ns.</pre></div><div class="public" id="var-execute-fixed-rate"><h3>execute-fixed-rate</h3><div class="usage"><code>(execute-fixed-rate executor f period delay-units initial-delay)</code><code>(execute-fixed-rate executor f period delay-units)</code></div><pre class="doc">Execute the given function `f` on the executor service `executor` regularly
+with a period specified by `period`. An `initial-delay` may be specified.
+`delay-units` is one of :days, :hours, :mins, :s, :ms, :us or :ns.</pre></div><div class="public" id="var-executor"><h3>executor</h3><div class="usage"><code>(executor {:keys [prefix daemon thread-group thread-group-name pool-size scheduled], :as options})</code></div><pre class="doc">Create a thread pool executor.
+
+`:pool-size`
+: specifies the executor pool size (number of threads).
+
+`:scheduled`
+: flag for whether the executor should allow scheduling
+
+`:daemon`
+: a boolean to specify if threads should be daemon threads. Defaults true.
+
+`:prefix`
+: a prefix for the name of threads created for this executor
+
+`:thread-group`
+: specifies the thread group to use for threads created for this
+  executor. Defaults to the current thread group. You can not specify
+  `:thread-group-name` if you specify `:thread-group`.
+
+`:thread-group-name`
+: specifies a name for the thread group to use for threads created for this
+  executor. Creates the thread group if it doesn't already exist. You can not
+  specify `:thread-group` if you specify `:thread-group-name`.</pre></div><div class="public" id="var-find-thread-group"><h3>find-thread-group</h3><div class="usage"><code>(find-thread-group thread-group-name)</code></div><pre class="doc">Returns the named thread group in the current-thread-group
+</pre></div><div class="public" id="var-thread-factory"><h3>thread-factory</h3><div class="usage"><code>(thread-factory {:keys [thread-group thread-group-name prefix daemon], :or {prefix &quot;pallet&quot;, daemon true}})</code></div><pre class="doc">Creates a thread factory.
+</pre></div><div class="public" id="var-thread-group"><h3>thread-group</h3><div class="usage"><code>(thread-group thread-group-name)</code></div><pre class="doc">Returns a named thread group, under the current thread group.
+</pre></div><div class="public" id="var-with-executor"><h3>with-executor</h3><div class="usage"><code>(with-executor bindings &amp; body)</code></div><pre class="doc">bindings =&gt; [name executor ...]
+
+Evaluates body in a try expression with names bound to the values of the
+executor, and a finally clause that calls (.shutdown name) on each name in
+reverse order.</pre></div></div></body></html>
