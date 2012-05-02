@@ -45,6 +45,6 @@ To use pallet-thread, add the following to your :dependencies:
 
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012 Hugo Duncan
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the Eclipse Public License.
