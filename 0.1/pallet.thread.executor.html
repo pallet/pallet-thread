@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <title>pallet.thread.executor documentation</title>
+    <link href="css/default.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/page_effects.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="header">
+        <h1 class="project-title">Pallet-thread 0.1.0-SNAPSHOT API documentation</h1>
+      </div>
+    </header>
+    <navigation>
+      <div id="namespaces" class="sidebar">
+        <h3>Namespaces</h3>
+        <ul class="ns-links">
+          <li class="ns-link"><a href="pallet.thread.executor.html">pallet.thread.executor</a></li>
+        </ul>
+      </div>
+      <div id="vars" class="sidebar">
+        <h3>Public Vars</h3>
+        <ul class="ns-var-links">
+          <li class="ns-var-link"><a href="pallet.thread.executor.html#var-current-thread-group">current-thread-group</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-execute">execute</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-execute-after">execute-after</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-execute-fixed-delay">execute-fixed-delay</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-execute-fixed-rate">execute-fixed-rate</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-executor">executor</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-find-thread-group">find-thread-group</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-thread-factory">thread-factory</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-thread-group">thread-group</a></li><li class="ns-var-link"><a href="pallet.thread.executor.html#var-with-executor">with-executor</a></li>
+        </ul>
+      </div>
+    </navigation>
+    <article>
+      <div id="content" class="namespace-docs">
+        <h2 class="namespace-title">pallet.thread.executor documentation</h2>
+        <div class="doc"><p>Thread executor primitives</p>
+</div>
+        <div class="ns-vars">
+          <div class="public">
+            <h3 id="var-current-thread-group">current-thread-group</h3>
+            <div class="usage">[]</div>
+            
+            
+            <div class="doc"><p>Returns the current thread group</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-execute">execute</h3>
+            <div class="usage">[executor f]</div>
+            
+            
+            <div class="doc"><p>Execute the given function <code>f</code> on the executor service <code>executor</code>.</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-execute-after">execute-after</h3>
+            <div class="usage">[executor f delay delay-units]</div><div class="usage">[executor f delay]</div>
+            
+            
+            <div class="doc"><p>Execute the given function <code>f</code> on the executor service <code>executor</code> after
+a delay specified by <code>delay</code>. <code>delay-units</code> is one of :days, :hours, :mins,
+:s, :ms, :us or :ns.</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-execute-fixed-delay">execute-fixed-delay</h3>
+            <div class="usage">[executor f delay delay-units initial-delay]</div><div class="usage">[executor f period delay-units]</div>
+            
+            
+            <div class="doc"><p>Execute the given function <code>f</code> on the executor service <code>executor</code> regularly
+with a delay specified by <code>delay</code>. An <code>initial-delay</code> may be specified.
+<code>delay-units</code> is one of :days, :hours, :mins, :s, :ms, :us or :ns.</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-execute-fixed-rate">execute-fixed-rate</h3>
+            <div class="usage">[executor f period delay-units initial-delay]</div><div class="usage">[executor f period delay-units]</div>
+            
+            
+            <div class="doc"><p>Execute the given function <code>f</code> on the executor service <code>executor</code> regularly
+with a period specified by <code>period</code>. An <code>initial-delay</code> may be specified.
+<code>delay-units</code> is one of :days, :hours, :mins, :s, :ms, :us or :ns.</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-executor">executor</h3>
+            <div class="usage">[{:keys [prefix daemon thread-group thread-group-name pool-size scheduled], :as options}]</div>
+            
+            
+            <div class="doc"><p>Create a thread pool executor.</p>
+
+<p><code>:pool-size</code>
+: specifies the executor pool size (number of threads).</p>
+
+<p><code>:scheduled</code>
+: flag for whether the executor should allow scheduling</p>
+
+<p><code>:daemon</code>
+: a boolean to specify if threads should be daemon threads. Defaults true.</p>
+
+<p><code>:prefix</code>
+: a prefix for the name of threads created for this executor</p>
+
+<p><code>:thread-group</code>
+: specifies the thread group to use for threads created for this
+  executor. Defaults to the current thread group. You can not specify
+  <code>:thread-group-name</code> if you specify <code>:thread-group</code>.</p>
+
+<p><code>:thread-group-name</code>
+: specifies a name for the thread group to use for threads created for this
+  executor. Creates the thread group if it doesn't already exist. You can not
+  specify <code>:thread-group</code> if you specify <code>:thread-group-name</code>.</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-find-thread-group">find-thread-group</h3>
+            <div class="usage">[thread-group-name]</div>
+            
+            
+            <div class="doc"><p>Returns the named thread group in the current-thread-group</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-thread-factory">thread-factory</h3>
+            <div class="usage">[{:keys [thread-group thread-group-name prefix daemon], :or {prefix "pallet", daemon true}}]</div>
+            
+            
+            <div class="doc"><p>Creates a thread factory.</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-thread-group">thread-group</h3>
+            <div class="usage">[thread-group-name]</div>
+            
+            
+            <div class="doc"><p>Returns a named thread group, under the current thread group.</p>
+</div>
+          </div><div class="public">
+            <h3 id="var-with-executor">with-executor</h3>
+            <div class="usage">[bindings &amp; body]</div>
+            
+            
+            <div class="doc"><p>bindings =&gt; [name executor ...]</p>
+
+<p>Evaluates body in a try expression with names bound to the values of the
+executor, and a finally clause that calls (.shutdown name) on each name in
+reverse order.</p>
+</div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </body>
+
+</html>
