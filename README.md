@@ -41,7 +41,7 @@ There are also scheduled executors:
 
 To use pallet-thread, add the following to your :dependencies:
 
-[pallet-thread "0.1.0-SNAPSHOT"]
+[pallet-thread "0.1.0"]
 
 ## License
 

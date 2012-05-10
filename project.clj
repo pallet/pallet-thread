@@ -1,4 +1,4 @@
-(defproject pallet-thread "0.1.0-SNAPSHOT"
+(defproject pallet-thread "0.1.0"
   :description "Library to simplify Java thread usage"
   :url "https://github.com/pallet/thread"
   :license {:name "Eclipse Public License"
