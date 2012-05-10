@@ -42,7 +42,7 @@
       (newThread [^Runnable r]
         (let [thread (Thread. thread-group r)]
           (.setName thread (str prefix "-" (.getId thread)))
-          (.setDaemon thread daemon)
+          (.setDaemon thread (boolean daemon))
           thread)))))
 
 (defn ^ExecutorService executor
