@@ -35,7 +35,7 @@ There are also scheduled executors:
 ```
 
 
-[API docs](http://pallet.github.com/pallet-thread)
+[API docs](http://pallet.github.com/pallet-thread/0.1)
 
 ## Installation
 
