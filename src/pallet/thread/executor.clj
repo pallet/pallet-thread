@@ -111,7 +111,7 @@
     :else (throw (IllegalArgumentException.
                    "with-open only allows Symbols in bindings"))))
 
-(defn execute
+(defn ^Future execute
   "Execute the given function `f` on the executor service `executor`."
   [^ExecutorService executor ^Callable f]
   (.submit executor f))
