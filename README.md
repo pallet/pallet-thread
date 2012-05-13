@@ -43,6 +43,8 @@ To use pallet-thread, add the following to your :dependencies:
 
 [pallet-thread "0.1.0"]
 
+[![Build Status](https://secure.travis-ci.org/pallet/pallet-thread.png)](http://travis-ci.org/pallet/pallet-thread)
+
 ## License
 
 Copyright © 2012 Hugo Duncan
